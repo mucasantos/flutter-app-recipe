@@ -9,8 +9,6 @@ class RecipeScreen extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    var list = ["ok", "blza"];
-
     return GetBuilder<RecipeController>(
       initState: (_) {},
       builder: (recipe) {
