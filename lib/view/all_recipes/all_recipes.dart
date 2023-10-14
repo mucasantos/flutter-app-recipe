@@ -47,9 +47,9 @@ class _MyHomePageState extends State<AllRecipesScreen> {
                     child: GridView.count(
                         primary: false,
                         padding: const EdgeInsets.all(20),
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        crossAxisCount: 3,
+                        crossAxisSpacing: 1,
+                        mainAxisSpacing: 1,
+                        crossAxisCount: 2,
                         children:
                             controller.allRecipesFromCategory.map((element) {
                           //Por causa do webscrapping, um dos dados vem com o dado "mais"...

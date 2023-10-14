@@ -10,35 +10,33 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
-      // color: Colors.blueGrey,
+      padding: const EdgeInsets.all(16.0),
+      height: size.height / 8,
+      width: size.width / 3 - 16,
       alignment: Alignment.bottomCenter,
-      decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 200, 176, 240),
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
-          image: DecorationImage(
-              fit: BoxFit.contain,
-              image: NetworkImage(
-                element.image!,
-              ))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 200, 176, 240),
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(133, 158, 158, 158),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              child: Text(
-                element.name?.toUpperCase() ?? '',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
+            child: Image.network(
+              element.image!,
+              height: 80,
+            ),
+          ),
+          Text(
+            element.name?.toUpperCase() ?? '',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
         ],
