@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:recipe_app/models/allrecipes.dart';
 import 'package:recipe_app/models/categories.dart';
 import 'package:recipe_app/models/recipe.dart';
-import 'package:recipe_app/repository/recipes_data.dart';
+import 'package:recipe_app/repository/api_calls.dart';
 
 class RecipeController extends GetxController {
   RecipeController() {

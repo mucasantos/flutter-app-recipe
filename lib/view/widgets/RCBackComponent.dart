@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RCBackComponent extends StatelessWidget {
-  Color color;
-  Color borderColor;
+  final Color color;
+  final Color borderColor;
 
-  RCBackComponent({required this.color, required this.borderColor});
+  const RCBackComponent({
+    Key? key,
+    required this.color,
+    required this.borderColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

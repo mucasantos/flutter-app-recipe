@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:recipe_app/controller/recipe_controller.dart';
-import 'package:recipe_app/view/all_recipes/all_recipes.dart';
 import 'package:recipe_app/view/categories/categories_screen.dart';
-import 'package:recipe_app/view/widgets/category_widget.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key, required this.title});
@@ -56,14 +50,12 @@ class _MyHomePageState extends State<DashBoard> {
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Container(
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/images/mulher-cozinha.jpg',
-                  )
-                ],
-              ),
+            Column(
+              children: [
+                Image.asset(
+                  'assets/images/mulher-cozinha.jpg',
+                )
+              ],
             ),
             const CategoryScreen(),
             Container()
