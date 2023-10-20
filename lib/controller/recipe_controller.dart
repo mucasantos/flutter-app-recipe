@@ -22,6 +22,7 @@ class RecipeController extends GetxController {
     if (result['error'] != null) {
       Get.snackbar('Error', result['error']);
       hasError.value = true;
+      isLoading.value = false;
       update();
     }
 
@@ -42,6 +43,13 @@ class RecipeController extends GetxController {
 
     final result = await ApiCalls.getRecipes(url);
 
+    if (result['error'] != null) {
+      Get.snackbar('Error', result['error']);
+      hasError.value = true;
+      isLoading.value = false;
+      update();
+    }
+
     if (result != null) {
       var recipes = AllRecipes.fromJson(result as Map<String, dynamic>);
 
@@ -54,6 +62,13 @@ class RecipeController extends GetxController {
   getOneRecipe(String url) async {
     isLoading.value = true;
     var result = await ApiCalls.getOneRecipe(url);
+
+    if (result['error'] != null) {
+      Get.snackbar('Error', result['error']);
+      hasError.value = true;
+      isLoading.value = false;
+      update();
+    }
 
     if (result != null) {
       var recipe = RecipeData.fromJson(result as Map<String, dynamic>);

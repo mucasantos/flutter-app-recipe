@@ -77,7 +77,13 @@ class _MyHomePageState extends State<DashBoard> {
               }
             }),
             const CategoryScreen(),
-            Container()
+            Column(
+              children: [
+                Image.asset(
+                  'assets/images/about.jpg',
+                ),
+              ],
+            )
           ],
         ));
   }

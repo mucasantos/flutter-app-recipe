@@ -35,6 +35,23 @@ class _MyHomePageState extends State<CategoryScreen> {
               );
             }
 
+            if (controller.hasError.value) {
+              EasyLoading.dismiss();
+
+              return Column(
+                children: [
+                  Image.asset(
+                    'assets/images/error.jpg',
+                  ),
+                  ElevatedButton(
+                      onPressed: () async {
+                        await controller.getCategories();
+                      },
+                      child: const Text('Tente novamente'))
+                ],
+              );
+            }
+
             return SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -50,6 +67,7 @@ class _MyHomePageState extends State<CategoryScreen> {
                         onTap: () async {
                           EasyLoading.show();
                           await controller.getAllRecipes(element.link!);
+
                           Get.to(() => AllRecipesScreen(title: element.name!));
                           EasyLoading.dismiss();
                         },
