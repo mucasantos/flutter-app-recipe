@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:recipe_app/controller/recipe_controller.dart';
 import 'package:recipe_app/view/recipe/recipe_screen.dart';
 import 'package:recipe_app/view/widgets/item_recipe.dart';

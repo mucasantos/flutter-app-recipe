@@ -18,7 +18,7 @@ class CategoryWidget extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 200, 176, 240),
-        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

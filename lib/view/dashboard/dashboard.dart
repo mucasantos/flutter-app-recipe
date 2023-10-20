@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:recipe_app/controller/recipe_controller.dart';
 import 'package:recipe_app/view/categories/categories_screen.dart';
 
 class DashBoard extends StatefulWidget {
@@ -50,13 +52,30 @@ class _MyHomePageState extends State<DashBoard> {
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Column(
-              children: [
-                Image.asset(
-                  'assets/images/mulher-cozinha.jpg',
-                )
-              ],
-            ),
+            GetBuilder<RecipeController>(builder: (controller) {
+              if (controller.hasError.value) {
+                return Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/error.jpg',
+                    ),
+                    ElevatedButton(
+                        onPressed: () async {
+                          await controller.getCategories();
+                        },
+                        child: const Text('Tente novamente'))
+                  ],
+                );
+              } else {
+                return Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/mulher-cozinha.jpg',
+                    )
+                  ],
+                );
+              }
+            }),
             const CategoryScreen(),
             Container()
           ],

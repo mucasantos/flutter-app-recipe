@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:dio/dio.dart';
 import 'package:recipe_app/api/endpoints.dart';
 import 'package:recipe_app/api/http_manager.dart';
 

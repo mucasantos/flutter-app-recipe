@@ -74,7 +74,7 @@ class RecipeScreen extends StatelessWidget {
                     child: Scrollbar(
                       thumbVisibility: true,
                       child: SingleChildScrollView(
-                        physics: ScrollPhysics(),
+                        physics: const ScrollPhysics(),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children:

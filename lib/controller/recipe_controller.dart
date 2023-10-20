@@ -13,10 +13,17 @@ class RecipeController extends GetxController {
   Rx<DataRecipe> oneRecipe = DataRecipe().obs;
 
   RxBool isLoading = false.obs;
+  RxBool hasError = false.obs;
 
   getCategories() async {
     isLoading.value = true;
     var result = await ApiCalls.getCategories();
+
+    if (result['error'] != null) {
+      Get.snackbar('Error', result['error']);
+      hasError.value = true;
+      update();
+    }
 
     if (result != null) {
       var categories =
@@ -24,13 +31,16 @@ class RecipeController extends GetxController {
 
       allCategories.value = categories.data?.categories as List<Categories>;
       isLoading.value = false;
+      hasError.value = false;
+
       update();
     }
   }
 
   getAllRecipes(String url) async {
     isLoading.value = true;
-    var result = await ApiCalls.getRecipes(url);
+
+    final result = await ApiCalls.getRecipes(url);
 
     if (result != null) {
       var recipes = AllRecipes.fromJson(result as Map<String, dynamic>);
@@ -45,7 +55,6 @@ class RecipeController extends GetxController {
     isLoading.value = true;
     var result = await ApiCalls.getOneRecipe(url);
 
-    print(result);
     if (result != null) {
       var recipe = RecipeData.fromJson(result as Map<String, dynamic>);
 

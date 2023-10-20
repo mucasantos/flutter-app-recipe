@@ -42,12 +42,12 @@ class HttpManager {
           return {'error': 'Server error...'};
         }
       } else {
-        return {"error": "CONNECTION"};
+        return {"error": "Erro de Conexão..."};
       }
       return e.response?.data ?? {};
     } catch (e) {
       //Erro generalizado
-      return {};
+      return {"error": "General Error..."};
     }
   }
 }
