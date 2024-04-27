@@ -26,7 +26,7 @@ class RecipeScreen extends StatelessWidget {
                 image: DecorationImage(
               fit: BoxFit.cover,
               image: CachedNetworkImageProvider(
-                recipe.oneRecipe.value.image!,
+                recipe.oneRecipe.value.recipe!.steps![0].image!,
               ),
             )),
             child: Stack(

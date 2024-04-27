@@ -60,9 +60,7 @@ class _MyHomePageState extends State<CategoryScreen> {
                     runSpacing: 8,
                     children: controller.allCategories.map((element) {
                       //Por causa do webscrapping, um dos dados vem com o dado "mais"...
-                      if (element.image == null) {
-                        return Container();
-                      }
+
                       return GestureDetector(
                         onTap: () async {
                           EasyLoading.show();

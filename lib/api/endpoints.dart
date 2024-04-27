@@ -1,5 +1,7 @@
+String server = "recipes-nkpy.onrender.com/";
+
 abstract class Endpoints {
-  static String cetegories = "https://receitas-lkkr.onrender.com/categories";
-  static String allRecipes = "https://receitas-lkkr.onrender.com/recipes";
-  static String recipe = "https://receitas-lkkr.onrender.com/recipe";
+  static String cetegories = "https://${server}categories";
+  static String allRecipes = "https://${server}recipes";
+  static String recipe = "https://${server}recipe";
 }

@@ -24,12 +24,6 @@ class CategoryWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Image.network(
-              element.image!,
-              height: 80,
-            ),
-          ),
           Text(
             element.name?.toUpperCase() ?? '',
             textAlign: TextAlign.center,

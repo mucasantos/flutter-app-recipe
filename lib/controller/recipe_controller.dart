@@ -30,7 +30,7 @@ class RecipeController extends GetxController {
       var categories =
           RecipeCategories.fromJson(result as Map<String, dynamic>);
 
-      allCategories.value = categories.data?.categories as List<Categories>;
+      allCategories.value = categories.categories as List<Categories>;
       isLoading.value = false;
       hasError.value = false;
 
