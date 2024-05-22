@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:recipe_app/models/allrecipes.dart';
 import 'package:recipe_app/utils/RCClipperPaths.dart';
 
@@ -7,7 +8,7 @@ class ItemRecipeWidget extends StatelessWidget {
     super.key,
     required this.element,
   });
-  final Items element;
+  final Meals element;
 
   @override
   Widget build(BuildContext context) {
@@ -16,34 +17,16 @@ class ItemRecipeWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.timelapse_outlined),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  Text(
-                    element.duration?.toUpperCase() ?? '',
-                  ),
-                ],
-              ),
-            ],
-          ),
-          ClipPath(
-            clipper: BackgroundClipperThree(),
-            child: Image.network(
-              element.image!,
-            ),
-          ),
           Text(
-            element.name!,
-            style: const TextStyle(fontSize: 12),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+            element.strMeal?.toUpperCase() ?? '',
+          ),
+          Expanded(
+            child: ClipPath(
+              clipper: BackgroundClipperThree(),
+              child: Image.network(
+                element.strMealThumb!,
+              ),
+            ),
           ),
         ],
       ),

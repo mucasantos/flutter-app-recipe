@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:recipe_app/models/categories.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -24,6 +25,7 @@ class CategoryWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Expanded(child: Image.network(element.image!)),
           Text(
             element.name?.toUpperCase() ?? '',
             textAlign: TextAlign.center,

@@ -1,22 +1,20 @@
 class RecipeCategories {
-  String? message;
+  //String? message;
   List<Categories>? categories;
 
-  RecipeCategories({this.message, this.categories});
+  RecipeCategories({this.categories});
 
   RecipeCategories.fromJson(Map<String, dynamic> json) {
     categories = <Categories>[];
-    message = json['message'];
-    json['data']?.forEach((v) {
+    json['categories']?.forEach((v) {
       categories!.add(Categories.fromJson(v));
     });
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
     if (categories != null) {
-      data['data'] = categories!;
+      data['categories'] = categories!;
     }
     return data;
   }
@@ -24,25 +22,25 @@ class RecipeCategories {
 
 class Categories {
   String? name;
-  String? link;
-  // String? image;
+  String? image;
+  String? strCategoryDescription;
 
   Categories({
     this.name,
-    this.link,
+    this.image,
   });
 
   Categories.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    link = json['link'];
-    //image = json['image'] ?? "";
+    name = json['strCategory'];
+    strCategoryDescription = json['strCategoryDescription'];
+    image = json['strCategoryThumb'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = name;
-    data['link'] = link;
-    //  data['image'] = image;
+    data['strCategory'] = name;
+    data['strCategoryDescription'] = strCategoryDescription;
+    data['strCategoryThumb'] = image;
     return data;
   }
 }

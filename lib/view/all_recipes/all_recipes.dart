@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:recipe_app/controller/recipe_controller.dart';
+import 'package:recipe_app/view/recipe/new_recipe_screen.dart';
 import 'package:recipe_app/view/recipe/recipe_screen.dart';
 import 'package:recipe_app/view/widgets/item_recipe.dart';
 
@@ -38,7 +39,6 @@ class _MyHomePageState extends State<AllRecipesScreen> {
                   ),
                 );
               }
-
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -52,14 +52,13 @@ class _MyHomePageState extends State<AllRecipesScreen> {
                         children:
                             controller.allRecipesFromCategory.map((element) {
                           //Por causa do webscrapping, um dos dados vem com o dado "mais"...
-                          if (element.name == null) {
-                            return Container();
-                          }
                           return GestureDetector(
                             onTap: () async {
                               EasyLoading.show();
-                              await controller.getOneRecipe(element.link!);
-                              Get.to(() => const RecipeScreen());
+
+                              Get.to(() => NewRecipeScreen(
+                                    recipe: element,
+                                  ));
                               EasyLoading.dismiss();
                             },
                             child: ItemRecipeWidget(

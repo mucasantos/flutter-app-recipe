@@ -22,12 +22,21 @@ class ApiCalls {
     //return response.data;
   }
 
-  static getRecipes(String category) async {
+  static getRecipesOld(String category) async {
     final response = await _httpManager
         .restRequest(url: Endpoints.allRecipes, method: 'post', body: {
       "link": category,
     });
     log(response.toString());
+    return response;
+  }
+
+  static getRecipes(String category) async {
+    final response = await _httpManager.restRequest(
+      url: Endpoints.searchRecipe + category,
+      method: 'get',
+    );
+    // log(response.toString());
     return response;
   }
 

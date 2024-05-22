@@ -9,7 +9,7 @@ class RecipeController extends GetxController {
     getCategories();
   }
   RxList<Categories> allCategories = <Categories>[].obs;
-  RxList<Items> allRecipesFromCategory = <Items>[].obs;
+  RxList<Meals> allRecipesFromCategory = <Meals>[].obs;
   Rx<DataRecipe> oneRecipe = DataRecipe().obs;
 
   RxBool isLoading = false.obs;
@@ -49,11 +49,12 @@ class RecipeController extends GetxController {
       isLoading.value = false;
       update();
     }
+    print(result);
 
     if (result != null) {
-      var recipes = AllRecipes.fromJson(result as Map<String, dynamic>);
+      var recipes = Recipes.fromJson(result);
 
-      allRecipesFromCategory.value = recipes.data!.items as List<Items>;
+      allRecipesFromCategory.value = recipes.meals;
       isLoading.value = false;
       update();
     }

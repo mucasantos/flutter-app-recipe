@@ -52,6 +52,31 @@ class _MyHomePageState extends State<CategoryScreen> {
               );
             }
 
+            return GridView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: controller.allCategories.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
+                itemBuilder: (_, int index) {
+                  return GestureDetector(
+                    onTap: () async {
+                      EasyLoading.show();
+                      await controller
+                          .getAllRecipes(controller.allCategories[index].name!);
+
+                      Get.to(() => AllRecipesScreen(
+                          title: controller.allCategories[index].name!));
+                      EasyLoading.dismiss();
+                    },
+                    child: CategoryWidget(
+                        element: controller.allCategories[index]),
+                  );
+                });
+
+/*
             return SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -64,7 +89,7 @@ class _MyHomePageState extends State<CategoryScreen> {
                       return GestureDetector(
                         onTap: () async {
                           EasyLoading.show();
-                          await controller.getAllRecipes(element.link!);
+                          await controller.getAllRecipes(element.image!);
 
                           Get.to(() => AllRecipesScreen(title: element.name!));
                           EasyLoading.dismiss();
@@ -76,6 +101,8 @@ class _MyHomePageState extends State<CategoryScreen> {
                     }).toList()),
               ),
             );
+
+            */
           }),
     ));
   }
