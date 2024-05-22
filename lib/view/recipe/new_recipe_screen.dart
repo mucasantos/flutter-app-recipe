@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -31,10 +32,11 @@ class _NewRecipeScreenState extends State<NewRecipeScreen> {
 
   listIngredientsToImage(List<Map<dynamic, dynamic>>? ingredients) {
     ingredientsImageAndMeasure.clear();
+    ingredientsName.clear();
     String url = "https://www.themealdb.com/images/ingredients/";
     for (var i = 1; i < 20; i++) {
-      if (!ingredients![i].keys.contains('') &&
-          !ingredients[i].values.contains('')) {
+      if (!ingredients![i].keys.toString().contains('null') &&
+          ingredients[i].keys.toString() != "()") {
         ingredientsName.add(ingredients[i]
             .keys
             .toString()
