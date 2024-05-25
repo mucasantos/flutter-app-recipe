@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:recipe_app/models/allrecipes.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -263,93 +259,5 @@ class _NewRecipeScreenState extends State<NewRecipeScreen> {
         ).paddingAll(16),
       ),
     );
-
-    /* Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(recipe.strMeal!),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            //Image
-            ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Stack(
-                children: [
-                  Image.network(recipe.strMealThumb!,
-                      width: MediaQuery.of(context).size.width,
-                      height: 250,
-                      fit: BoxFit.fill),
-                  Positioned(
-                    bottom: 16,
-                    left: 16,
-                    right: 16,
-                    child: Container(
-                      color: const Color.fromARGB(66, 255, 255, 255),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Text(
-                              recipe.strMeal!,
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inversePrimary,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const Spacer(),
-                            Text(recipe.strArea!),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Text(recipe.strImageSource ?? ''),
-            //Adicionar vídeo player
-            Text(recipe.strYoutube ?? ''),
-            Text(recipe.strMeasure1 ?? ''),
-            const Text(
-              "Instructions",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Card(
-              color: Theme.of(context).colorScheme.inversePrimary,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  recipe.strInstructions!,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-            const Text(
-              "Ingredients",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            Wrap(
-              children: ingredientsImage.map((e) => Image.network(e)).toList(),
-            )
-          ],
-        ).paddingAll(16),
-      ),
-    );
-    */
   }
 }
